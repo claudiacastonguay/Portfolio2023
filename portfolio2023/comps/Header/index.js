@@ -10,6 +10,7 @@ const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    box-shadow: 0px 3px 5px rgba(68, 68, 68, 0.3);
 `;
 
 const Menu = styled.div`
@@ -36,7 +37,7 @@ const NavUI = styled.h4`
     transition: 0.25s;
     color: ${props=>props.uicolor ? "#15C4B6" : "black"};
 
-    :hover{
+    &:hover{
         color: #15C4B6;
     }
 `;
@@ -47,7 +48,7 @@ const NavGraphic = styled.h4`
     transition: 0.25s;
     color: ${props=>props.graphiccolor ? "#15C4B6" : "black"};
 
-    :hover{
+    &:hover{
         color: #15C4B6;
     }
 `;
@@ -58,7 +59,7 @@ const NavAbout = styled.h4`
     transition: 0.25s;
     color: ${props=>props.aboutcolor ? "#15C4B6" : "black"};
 
-    :hover{
+    &:hover{
         color: #15C4B6;
     }
 `;
@@ -68,7 +69,7 @@ const NavHome = styled.h4`
     cursor: pointer;
     transition: 0.25s;
 
-    :hover{
+    &:hover{
         color: #15C4B6;
     }
 `;
@@ -80,7 +81,7 @@ const MobileNavUI = styled.h3`
     transition: 0.25s;
     color: ${props=>props.uicolor ? "#15C4B6" : "black"};
 
-    :hover{
+    &:hover{
         color: #15C4B6;
     }
 `;
@@ -92,7 +93,7 @@ const MobileNavGraphic = styled.h3`
     transition: 0.25s;
     color: ${props=>props.graphiccolor ? "#15C4B6" : "black"};
 
-    :hover{
+    &:hover{
         color: #15C4B6;
     }
 `;
@@ -104,7 +105,7 @@ const MobileNavAbout = styled.h3`
     transition: 0.25s;
     color: ${props=>props.aboutcolor ? "#15C4B6" : "black"};
 
-    :hover{
+    &:hover{
         color: #15C4B6;
     }
 `;
@@ -123,6 +124,9 @@ const MobileNavHome = styled.h3`
 
 const Navigations = styled.div`
     display: ${props=>props.mobilehidden ? 'none' : 'flex'};
+    @media (max-width: 1200px){
+        display: none;
+    }
 `;
 
 const HomeNav = styled.div`
@@ -140,9 +144,9 @@ const SubCont = styled.div`
 
 const HamMenu = styled.img`
     height: 40px;
-    display: ${(props) => (props.show ? 'flex' : 'none')};
-    margin-right: 20px;
-    cursor: pointer;
+  display: ${props => props.show ? 'flex' : 'none'};
+  margin-right: 20px;
+  cursor: pointer;
 `;
 
 const Close = styled.img`
@@ -155,6 +159,12 @@ const Close = styled.img`
     position: fixed;
     top: 3;
     right: 0;
+`;
+
+const LinksandMenu = styled.div`
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 `;
 
 
@@ -193,20 +203,18 @@ const Header = ({show, mobilehidden, uicolor, graphiccolor, aboutcolor, homecolo
     const [fadein, changeOpacity] = useState(0);
     const [showclose, setClose] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
-
-
-    
     
 
 
-    return ( <Container as='div'>
+
+    return <Container>
         
 
-        <Close src='close.svg' showmenu={showmenu.toString()} showclose={showclose.toString()} fadein={fadein} onClick={()=>{
-            setClose(!showclose);
-            setMenu(!showmenu);
-            changeOpacity(!fadein);
-        }} />
+        <Close src="close.svg" showmenu={showmenu} showclose={showclose} fadein={fadein} onClick={() => {
+    setClose(!showclose);
+    setMenu(!showmenu);
+    changeOpacity(!fadein);
+  }}/>
 
         <Menu showmenu={showmenu} fadein={fadein}>
         <MobileNavHome homecolor={homecolor} homefont={homefont} onClick={()=>{
@@ -230,24 +238,9 @@ const Header = ({show, mobilehidden, uicolor, graphiccolor, aboutcolor, homecolo
         }}>CLAUDIA CASTONGUAY</NavHome>
         </HomeNav>
 
-        {isMobile ? (
-          <HamMenu
-            src="/menu.svg"
-            show={'flex'}
-            showmenu={showmenu}
-            fadein={fadein}
-            showclose={showclose}
-            onClick={() => {
-              setMenu(!showmenu);
-              setClose(!showclose);
-              changeOpacity(!fadein);
-            }}
-          />
-        ) : null}
+<LinksandMenu>
 
-
-
-    {isMobile ? null : (
+        {isMobile ? null : (
           <Navigations mobilehidden={mobilehidden}>
             <NavUI uicolor={uicolor} onClick={()=>{
             routeUIUX();
@@ -263,11 +256,23 @@ const Header = ({show, mobilehidden, uicolor, graphiccolor, aboutcolor, homecolo
           </Navigations>
         )}
 
+
+     
+          <HamMenu src="/menu.svg" show={'flex'} showmenu={showmenu} fadein={fadein} showclose={showclose} onClick={() => {
+            setMenu(!showmenu);
+            setClose(!showclose);
+            changeOpacity(!fadein);
+        }}
+          />
+
+</LinksandMenu>
+       
+
     </SubCont>
 
     </Container>
 
-    );
+   
 };
 
 
