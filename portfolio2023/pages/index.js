@@ -1,5 +1,6 @@
 import Header from '../comps/Header';
 import Footer from '../comps/Footer';
+import Link from 'next/link';
 
 export default function Page() {
     return <main>

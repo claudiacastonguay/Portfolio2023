@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 
@@ -36,8 +36,9 @@ const Email = styled.a`
     font-weight: bold;
     text-decoration: none;
     cursor: pointer;
-    :hover{
+    &:hover{
         text-decoration: underline;
+        color:white;
     }
 `;
 
@@ -127,41 +128,31 @@ const Center = styled.div`
 
 const Footer = () => {
 
-    return <Container>
 
+    const [isMobile, setIsMobile] = useState(false);
 
-        {/* DESKTOP */}
-         
-        {process.browser && window.innerWidth >= 480 ? <MainText>
-            <Name>CLAUDIA CASTONGUAY</Name>
-            <SubTitle>DIGITAL DESIGN / FRONT-END DEVELOPMENT</SubTitle>
-            <br />
-            <Location>Vancouver, BC <br /> Canada</Location>
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth <= 480);
+        };
 
-        <Contacts>
-            <Email target='_blank' href={'mailto:claudcastonguay@gmail.com'}>claudcastonguay@gmail.com</Email>
-            {/* <br /> */}
-            <Phone>604-396-8378</Phone>
-        </Contacts>
+        handleResize();
 
-        <Socials>
-            <SocialLink target='_blank' href={'https://drive.google.com/file/d/1NaohzhR-eLIoh12v7P5E6esy7HEOXKD-/view?usp=sharing'}>RESUME</SocialLink>
-            <SocialLink target="_blank" href={'https://www.linkedin.com/in/claudiacastonguay/'}>LINKEDIN</SocialLink>
-            
-            {/* ADD INSTAGRAM LATER */}
-            
-            {/* <SocialLink onClick={()=>{
-                alert('Currently Unavailable');
-            }}>INSTAGRAM</SocialLink> */}
-        </Socials>
-            
-         </MainText> : null}
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
 
 
 
-         {/* MOBILE */}
+    return (<Container>
 
-         {process.browser && window.innerWidth <= 480 ? <MainText>
+
+    {isMobile ? (
+        //MOBILE
+    <MainText>
             <Name2>CLAUDIA CASTONGUAY</Name2>
             <SubTitle2>DIGITAL DESIGN / FRONT-END DEVELOPMENT</SubTitle2>
             <br />
@@ -174,7 +165,7 @@ const Footer = () => {
         </Contacts>
 
         <Socials2>
-            <SocialLink2 target='_blank' href={'https://drive.google.com/file/d/1NaohzhR-eLIoh12v7P5E6esy7HEOXKD-/view?usp=sharing'}>RESUME</SocialLink2>
+            <SocialLink2 target='_blank' href={'https://drive.google.com/file/d/1Wh9ZB924WB01414JJrtBKvMv7O-A2GFK/view?usp=sharing'}>RESUME</SocialLink2>
             <SocialLink2 target="_blank" href={'https://www.linkedin.com/in/claudiacastonguay/'}>LINKEDIN</SocialLink2>
             
             {/* ADD INSTAGRAM LATER */}
@@ -184,14 +175,45 @@ const Footer = () => {
             }}>INSTAGRAM</SocialLink2> */}
         </Socials2>
             
-         </MainText> : null}
+         </MainText>
+
+) : (
+     //DESKTOP  
+        <MainText>
+            <Name>CLAUDIA CASTONGUAY</Name>
+            <SubTitle>DIGITAL DESIGN / FRONT-END DEVELOPMENT</SubTitle>
+            <br />
+            <Location>Vancouver, BC <br /> Canada</Location>
+
+        <Contacts>
+            <Email target='_blank' href={'mailto:claudcastonguay@gmail.com'}>claudcastonguay@gmail.com</Email>
+            {/* <br /> */}
+            <Phone>604-396-8378</Phone>
+        </Contacts>
+
+        <Socials>
+            <SocialLink target='_blank' href={'https://drive.google.com/file/d/1Wh9ZB924WB01414JJrtBKvMv7O-A2GFK/view?usp=sharing'}>RESUME</SocialLink>
+            <SocialLink target="_blank" href={'https://www.linkedin.com/in/claudiacastonguay/'}>LINKEDIN</SocialLink>
+            
+            {/* ADD INSTAGRAM LATER */}
+            
+            {/* <SocialLink onClick={()=>{
+                alert('Currently Unavailable');
+            }}>INSTAGRAM</SocialLink> */}
+        </Socials>
+            
+         </MainText>
+
+)} 
 
             {/* <Center>
                 <Copyright>Copyright © 2021 Claudia Castonguay - All Rights Reserved</Copyright>
             </Center> */}
 
     </Container>
-}
+    );
+
+};
 
 
 
