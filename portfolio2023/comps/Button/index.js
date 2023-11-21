@@ -18,7 +18,7 @@ const Container = styled.a`
     // max-width: 150px;
     // max-width: 210px;
     display: inline-flex;
-    :hover{
+    &:hover{
         color:white;
         background-color: #15C4B6;
     }
