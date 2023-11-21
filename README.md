@@ -1,6 +1,4 @@
 # Portfolio2023
-Portfolio with updated dependencies.
-
 
 This Github repository for my portfolio does not show all of the development stages of coding it from scratch. The original repository I created for my portfolio was created in 2021 and had several outdated dependencies which caused it to fail to deploy.
 
