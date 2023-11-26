@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Header from '../../comps/Header';
 import Button from '../../comps/Button';
 import Router from 'next/router';
@@ -20,6 +20,24 @@ function ToTop(){
 
 
 export default function GraphicDesign(){
+
+    const [isDesktop, setIsDesktop] = useState(false);
+
+    useEffect(() => {
+    
+        const updateScreenWidth = () => {
+          setIsDesktop(window.innerWidth >= 1512);
+        };
+    
+        updateScreenWidth();
+    
+        window.addEventListener('resize', updateScreenWidth);
+    
+        return () => {
+          window.removeEventListener('resize', updateScreenWidth);
+        };
+      }, []);
+
 
 
     return <main>
@@ -60,8 +78,9 @@ export default function GraphicDesign(){
         {/* REALISTIC VECTOR DRAWING */}
 
     
+        {/* DESKTOP */}
 
-        {process.browser && window.innerWidth >= 1512 ? <div className='graphicproject'>
+        {isDesktop ? ( <div className='graphicproject'>
             <div className='subgraphicproject'>
 
         <div id='vector'>
@@ -95,40 +114,36 @@ export default function GraphicDesign(){
             </div>
 
 
-            
-
         </div>
 
-    </div> :
+    </div> ) : (
 
     //MOBILE
 
-    <div className='graphicproject'>
+    <div className='graphicprojectmob'>
             <div className='subgraphicproject'>
-
-
-        <div id='vector'>
-                <img className='gamecube' src='/realisticgamecube.png' alt="Realistic Illustrator Vector Drawing"></img>
-            </div>
-
 
             <div className='leftmargin'>
 
-                    <h1 className='graphictitle'>REALISTIC VECTOR DRAWING</h1>
+            <div id='vector'>
+                    <img className='gamecube' src='/realisticgamecube.png' alt="Realistic Illustrator Vector Drawing"></img>
+                </div>
 
-                    <p className='graphictext'>For this project, I was assigned to create a vector drawing in Adobe Illustrator as realistic as possible to a reference image of my choice.</p>
+                <h1 className='graphictitle'>REALISTIC VECTOR DRAWING</h1>
 
-                    <p className='graphictext'>This is the final result of my GameCube controller vector drawing. I used various effects, textures, and shapes to make it look as realistic as I could.</p>
+                
+
+                <p className='graphictext'>For this project, I was assigned to create a vector drawing in Adobe Illustrator as realistic as possible to a reference image of my choice.</p>
+
+                <p className='graphictext'>This is the final result of my GameCube controller vector drawing. I used various effects, textures, and shapes to make it look as realistic as I could.</p>
 
 
-            </div>
-
-
-            
+            </div>      
 
         </div>
 
-    </div>}
+    </div>  )
+    }
 
 
 
@@ -137,7 +152,7 @@ export default function GraphicDesign(){
 
 
     <NextLink className='scroll' href="/graphic-design#painting">
-            <div className='downarrowcont'>
+            <div className='downarrowcontgraph'>
                     <img className='downarrow' src='/downarrow.svg' alt="scroll down arrow"></img>
             </div>
     </NextLink>
@@ -151,7 +166,7 @@ export default function GraphicDesign(){
 
     {/* DESKTOP */}
     
-    {process.browser && window.innerWidth >= 1512 ? <div className='graphicproject'>
+    {isDesktop ? ( <div className='graphicproject'>
         <div className='subgraphicproject'>
 
             <div className='paintingtext'>
@@ -188,7 +203,7 @@ export default function GraphicDesign(){
 
         </div>
 
-    </div> :
+    </div> ) : (
 
     // MOBILE
 
@@ -214,8 +229,8 @@ export default function GraphicDesign(){
             </div>
 
         </div>
-
-    </div>}
+            
+    </div>)}
 
 
 
@@ -224,7 +239,7 @@ export default function GraphicDesign(){
 
 
     <NextLink className='scroll' href="/graphic-design#promoanimation">
-    <div className='downarrowcont'>
+    <div className='downarrowcustom'>
                     <img className='downarrow' src='/downarrow.svg' alt="scroll down arrow"></img>
         </div>
     </NextLink>
@@ -241,7 +256,7 @@ export default function GraphicDesign(){
 
 
 
-    {process.browser && window.innerWidth >= 680 ? <div className='graphicproject'>
+    {isDesktop ? ( <div className='graphicproject'>
         <div id='promoanimation'>
 
             <div className='videotext'>
@@ -264,7 +279,7 @@ export default function GraphicDesign(){
 
         </div>
 
-    </div> :
+    </div> ) : (
 
     //MOBILE
 
@@ -290,7 +305,7 @@ export default function GraphicDesign(){
 
 </div>
 
-</div>}
+</div>)}
 
 
 
@@ -302,7 +317,7 @@ export default function GraphicDesign(){
 
 
     <NextLink className='scroll' href="/graphic-design#audiofina">
-    <div className='downarrowcont'>
+    <div className='downarrowcontgraph'>
                 <img className='downarrow' src='/downarrow.svg' alt="scroll down arrow"></img>
         </div>
     </NextLink>
@@ -317,7 +332,7 @@ export default function GraphicDesign(){
 
     {/* DESKTOP */}
 
-    {process.browser && window.innerWidth >= 1512 ? <div className='graphicproject'>
+    {isDesktop ? ( <div className='graphicproject'>
         <div className='subgraphicproject'>
 
             <div className='graphicprojecttext'>
@@ -337,7 +352,7 @@ export default function GraphicDesign(){
 
         </div>
 
-    </div> :
+    </div> ) : (
 
     //MOBILE 
     
@@ -362,7 +377,7 @@ export default function GraphicDesign(){
 
     </div>
 
-</div>}
+</div>)}
 
 
 
@@ -374,7 +389,7 @@ export default function GraphicDesign(){
 
 
     <NextLink className='scroll' href="/graphic-design#albumcover">
-    <div className='downarrowcont'>
+    <div className='downarrowcustom'>
                     <img className='downarrow' src='/downarrow.svg' alt="scroll down arrow"></img>
         </div>
     </NextLink>
@@ -387,7 +402,7 @@ export default function GraphicDesign(){
 
     {/* DESKTOP */}
 
-    {process.browser && window.innerWidth >= 1512 ? <div className='graphicproject'>
+    {isDesktop ? ( <div className='graphicproject'>
         <div className='subgraphicproject'>
 
 
@@ -430,7 +445,7 @@ export default function GraphicDesign(){
 
 
 
-    </div> : 
+    </div> ) : (
 
     //MOBILE
 
@@ -461,14 +476,14 @@ export default function GraphicDesign(){
 
 
 
-    </div>}
+    </div>)}
 
 
 
 
 
     <NextLink className='scroll' href="/graphic-design#motiongraphicproject">
-    <div className='downarrowcont'>
+    <div className='downarrowcustom'>
                     <img className='downarrow' src='/downarrow.svg' alt="scroll down arrow"></img>
         </div>
     </NextLink>
@@ -482,7 +497,7 @@ export default function GraphicDesign(){
     {/* DESKTOP */}
 
 
-    {process.browser && window.innerWidth >= 680 ? <div className='graphicproject'>
+    {isDesktop ? ( <div className='graphicproject'>
         <div id='motiongraphicproject'>
 
             <div className='videotext'>
@@ -504,7 +519,7 @@ export default function GraphicDesign(){
 
         </div>
 
-    </div> :
+    </div> ) : (
 
     //MOBILE
 
@@ -530,7 +545,7 @@ export default function GraphicDesign(){
 
 </div>
 
-</div>}
+</div>)}
 
 
 
@@ -554,4 +569,4 @@ export default function GraphicDesign(){
 
     </main>
 
-}
+    }

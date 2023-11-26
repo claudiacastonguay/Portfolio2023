@@ -149,7 +149,14 @@ a:hover{
       display: flex;
       width: 100%;
       justify-content: center;
-      margin: 220px 0px 220px 0px;
+    //   margin: 220px 0px 220px 0px;
+  }
+
+  .downarrowcontgraph{
+    display: flex;
+      width: 100%;
+      justify-content: center;
+      margin: 120px 0px 0px 0px;
   }
 
   .downarrowconthome{
@@ -402,9 +409,10 @@ a:hover{
         font-size: 35pt !important;
     }
       .subprojectinfo{
-        margin-left: 46px !important;
+        margin-left: 30px !important;
         margin-top: 80px !important;
-        margin-right: 46px !important;
+        margin-right: 30px !important;
+        padding: 30px !important;
       }
       .overview{
           font-size: 28pt !important;
@@ -449,11 +457,12 @@ a:hover{
 }
 
 .uidownloads{
-    border: 1px solid lightgray;
+    border: 1.5px solid lightgray;
     padding: 60px 30px 70px 30px;
     border-radius: 20px;
     margin-top: 120px;
     width: 60%;
+    box-shadow: 2px 3px 5px rgba(68, 68, 68, 0.3);
 }
 
 #earthherocont{
@@ -461,7 +470,7 @@ a:hover{
     width: 100%;
     justify-content: center;
     align-items: center;
-    margin-top: 120px;
+    margin-top: 50px;
     margin-bottom: 20px;
 }
 
@@ -470,7 +479,7 @@ a:hover{
     width: 100%;
     justify-content: center;
     align-items: center;
-    margin-top: 120px;
+    margin-top: 50px;
     margin-bottom: 20px;
 }
 
@@ -479,7 +488,7 @@ a:hover{
     width: 100%;
     justify-content: center;
     align-items: center;
-    margin-top: 120px;
+    margin-top: 50px;
     margin-bottom: 20px;
 }
 
@@ -494,7 +503,7 @@ a:hover{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 120px;
+    margin-top: 50px;
     margin-bottom: 20px;
 }
 
@@ -568,7 +577,15 @@ a:hover{
 
 .subprojectinfo{
     max-width: 1620px;
-    margin: 130px 90px 130px 90px;
+    // margin: 90px 190px 130px 190px;
+    margin-top: 90px;
+    margin-left: 12%;
+    margin-right: 12%;
+    margin-bottom: 130px;
+    background-color: rgba(238, 238, 238, 0.603);
+    padding: 50px;
+    border-radius: 50px;
+    box-shadow: 3px 5px 5px rgba(153, 153, 153, 0.521);
 }
 
 .uiprojecttext{
@@ -578,7 +595,7 @@ a:hover{
 .uisubtitle{
     color: #444444;
     font-size: 25pt;
-    margin-top: 90px;
+    margin-top: 50px;
 }
 
 .uibutton{
@@ -708,6 +725,15 @@ a:hover{
     }
     #animatetitle{
         font-size: 35pt;
+    }
+}
+
+@media (max-width: 600px) {
+    .graphicprojectmob{
+    margin-top: 60px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
     }
 }
 
@@ -853,6 +879,14 @@ a:hover{
     display: flex;
     justify-content: space-around;
     flex-direction: row-reverse;
+    padding: 50px 0px 80px 0px;
+}
+
+.downarrowcustom{
+    display: flex;
+      width: 100%;
+      justify-content: center;
+      margin: 180px 0px 200px 0px;
 }
 
 .graphictext{
