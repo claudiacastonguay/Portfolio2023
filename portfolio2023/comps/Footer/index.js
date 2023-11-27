@@ -22,6 +22,7 @@ const MainText = styled.div`
     padding: 10%;
     display: flex;
     flex-direction: column;
+    padding-bottom: 2%;
 `;
 
 const Location = styled.p`
@@ -125,6 +126,30 @@ const Center = styled.div`
     
 `;
 
+const GithubLink = styled.a`
+    cursor: pointer;
+    font-family: NexaBold;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+    :hover{
+        color: #15C4B6;
+    }
+    margin-left: 10px;
+`;
+
+const GithubCont = styled.div`
+    padding-bottom: 30px;
+    display: flex;
+    align-items: center;
+    padding-top: 30px;
+    margin-top: 80px;
+`;
+
+const GithubIcon = styled.img`
+    height: 25px;
+`;
+
 
 const Footer = () => {
 
@@ -174,6 +199,11 @@ const Footer = () => {
                 alert('Currently Unavailable');
             }}>INSTAGRAM</SocialLink2> */}
         </Socials2>
+
+            <GithubCont>  
+                <GithubIcon src='githubicon.svg' />
+                <GithubLink target='_blank' href={'https://github.com/claudiacastonguay/Portfolio2023'}>Portfolio GitHub</GithubLink>
+            </GithubCont> 
             
          </MainText>
 
@@ -201,10 +231,18 @@ const Footer = () => {
                 alert('Currently Unavailable');
             }}>INSTAGRAM</SocialLink> */}
         </Socials>
+
+            <GithubCont>  
+                <GithubIcon src='githubicon.svg' />
+                <GithubLink target='_blank' href={'https://github.com/claudiacastonguay/Portfolio2023'}>Portfolio GitHub</GithubLink>
+            </GithubCont> 
             
+
          </MainText>
 
 )} 
+
+             
 
             {/* <Center>
                 <Copyright>Copyright © 2021 Claudia Castonguay - All Rights Reserved</Copyright>
