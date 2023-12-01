@@ -116,7 +116,7 @@ export default function UIUXDesign () {
         <p className='uiprojecttext'>You can try out Earth Hero on your phone's browser or on a desktop browser. If you choose to view it on a desktop, make sure you right-click the screen and click 'Inspect.' Then press <b>Ctrl (Cmd) + Shift + M</b> to switch to a mobile view.</p>
 
         <div className='uibutton'>
-            <Button text='TRY EARTH HERO' externallink={"http://earth-hero.herokuapp.com/Home-page"}/>
+            <Button text='TRY EARTH HERO' externallink={"https://earth-hero.vercel.app/"}/>
         </div>
 
         </div>
